@@ -1,0 +1,3 @@
+grammar h;
+
+h: 'h';
