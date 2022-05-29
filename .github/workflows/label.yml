@@ -9,9 +9,8 @@ jobs:
     steps:
       - name: Label PR with h
         run: |
-          curl -X POST \
-          --url ${{ github.api_url }}/repos/${{ github.repository }}\
-            /issues/${{ github.event.number }}/labels \
+          curl ${{ github.api_url }}/repos/${{ github.repository }}/issues/${{ github.event.number }}/labels \
+          -X POST
           -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           -H 'content-type: application/json' \
           -d '{
