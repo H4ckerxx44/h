@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Label PR with h
         run: |
+          echo ${{ github.api_url }} &&
           curl -X POST \
           --url https://${{ github.api_url }}\
             repos/${{ github.repository }}/issues/\
