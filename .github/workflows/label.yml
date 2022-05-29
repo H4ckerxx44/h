@@ -11,7 +11,7 @@ jobs:
         run: |
           curl ${{ github.api_url }}/repos/${{ github.repository }}/issues/${{ github.event.number }}/labels \
           -X POST
-          -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
           -H 'content-type: application/json' \
           -d '{
             "labels": [
