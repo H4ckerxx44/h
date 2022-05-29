@@ -15,7 +15,7 @@ jobs:
             ${{ github.event.number }}/labels
           -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           -H 'content-type: application/json' \
-          -d '
+          -d '{
             "labels": [
               "h",
               "hh",
@@ -34,5 +34,4 @@ jobs:
               "hhhhhhhhhhhhhhh",
               "hhhhhhhhhhhhhhhh"
             ]
-          }' \
-          -f
+          }'
