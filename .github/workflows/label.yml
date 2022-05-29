@@ -1,0 +1,35 @@
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label PR with h
+        run: |
+          curl ${{ github.api_url }}/repos/${{ github.repository }}/issues/${{ github.event.number }}/labels \
+          -X POST \
+          -u ${{ github.repository_owner }}:${{ secrets.GITHUB_TOKEN }} \
+          -H 'content-type: application/json' \
+          -d '{
+            "labels": [
+              "h",
+              "hh",
+              "hhh",
+              "hhhh",
+              "hhhhh",
+              "hhhhhh",
+              "hhhhhhh",
+              "hhhhhhhh",
+              "hhhhhhhhh",
+              "hhhhhhhhhh",
+              "hhhhhhhhhhh",
+              "hhhhhhhhhhhh",
+              "hhhhhhhhhhhhh",
+              "hhhhhhhhhhhhhh",
+              "hhhhhhhhhhhhhhh",
+              "hhhhhhhhhhhhhhhh"
+            ]
+          }'
