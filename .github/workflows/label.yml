@@ -1,0 +1,25 @@
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label PR with h
+        run: |
+          curl -X POST \
+          --url https://${{ github.api_url }}\
+            repos/${{ github.repository }}/issues/\
+            ${{ github.event.number }}/labels
+          -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          -H 'content-type: application/json' \
+          -d '
+            "labels": [
+              "bug",
+              "invalid",
+              "wontfix"
+            ]
+          }' \
+          -f
