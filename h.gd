@@ -1,1 +1,2 @@
-
+while true:
+    print("h")
