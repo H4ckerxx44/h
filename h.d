@@ -1,9 +1,7 @@
 import std.stdio;
 
-void main()
-{
-    while (true)
-    {
+void main(string[ ] args) {
+    for (;;) {
         writeln("h");
     }
 }
