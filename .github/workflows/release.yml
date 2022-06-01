@@ -7,8 +7,8 @@ name: h
 
 jobs:
   create-release:
-    runs-on: ubuntu-latest
     name: h
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout h
         uses: actions/checkout@v3
