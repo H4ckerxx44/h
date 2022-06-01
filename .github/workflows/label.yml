@@ -6,8 +6,11 @@ on:
     types:
       - opened
 
+name: hhh
+
 jobs:
   label:
+    name: hhh
     runs-on: ubuntu-latest
     steps:
       - name: Label PR with h
