@@ -15,12 +15,13 @@ jobs:
       - name: Get h count
         id: h
         run: echo "::set-output name=count::h$(ls -1q h.* | wc -l)"
-      - name: Make sure h exists
-        run: echo ${{ steps.h.outputs.count }}
       - name: Create h
         run: echo "h" > h.txt
+      - name: Check latest h
+        run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
       - name: Release the h
         uses: softprops/action-gh-release@v1
+        if: ${{ steps.h.outputs.count != steps.hh.outputs.tag }}
         with:
           body: h
           tag_name: ${{ steps.h.outputs.count }}
