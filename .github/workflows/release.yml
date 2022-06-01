@@ -3,9 +3,12 @@ on:
     branches:
       - h
 
+name: h
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    name: h
     steps:
       - name: Checkout h
         uses: actions/checkout@v3
