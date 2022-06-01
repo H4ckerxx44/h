@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - h
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout h
+        uses: actions/checkout@v3
+      - name: Get h count
+        id: h
+        run: echo ::set-output count=$(ls -1q h.* | wc -l)
+      - name: Create h
+        run: echo "h" > h.txt
+      - name: Release the h
+        uses: softprops/action-gh-release@v1
+        with:
+          body: h
+          tag_name: ${{ steps.h.outputs.count }}
+          files: |
+            h.txt
