@@ -16,6 +16,6 @@ jobs:
       - name: Comment h
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: ${{ github.event.number }}
+          issue-number: ${{ github.event.number || github.event.issue.number }}
           body: h
           reactions: rocket
